@@ -1,0 +1,26 @@
+{# templates/weather/forecast.html.twig #}
+<h1>Berlin AccuWeather</h1>
+
+
+<table style="border: dashed; border-width: medium; text-align: center; width: 100%">
+    <tr>
+        <th>Date</th>
+        <th>Temperature_Min</th>
+        <th>Temperature_Max</th>
+        <th>Day</th>
+        <th>Night</th>
+    </tr>
+
+    {% for day in data %}
+    <tr>
+        <td>{{ day.epochdate|date("m/d/Y") }}</td>
+        <td>{{ day.temperatureminvalue ~ " " ~day.temperatureunit }}</td>
+        <td>{{ day.temperaturemaxvalue ~ " " ~day.temperatureunit }}</td>
+        <td>{{ day.dayphrase }}</td>
+        <td>{{ day.nightphrase }}</td>
+    </tr>
+
+    {% endfor %}
+
+
+</table>
